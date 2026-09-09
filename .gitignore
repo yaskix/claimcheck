@@ -1,0 +1,14 @@
+# Private claim stores never belong in version control.
+# The example store in claims/ is fictional and safe to publish.
+# Anything under private/ is real material — career facts, internal
+# figures, anything tagged HOLD — and must stay local.
+private/
+*.private.yaml
+*.private.yml
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.DS_Store
