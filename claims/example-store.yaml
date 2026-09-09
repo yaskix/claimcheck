@@ -1,0 +1,168 @@
+# Example claim store — Tallvik Components AB
+#
+# Tallvik Components is a FICTIONAL company invented for this repository.
+# Every figure below is made up. Nothing here comes from any real company,
+# and no internal material of any kind was used to build it.
+#
+# The store exists to show the shape of a claim. It is not accurate about
+# anything, because there is nothing for it to be accurate about.
+
+version: 1
+subject: Tallvik Components AB
+description: >
+  Fictional Swedish manufacturer of bicycle drivetrain components, selling
+  through distributors to certified workshop mechanics. Chosen because it has
+  the three properties that make claim provenance hard: regulated technical
+  specifications, performance figures with no public base, and internal
+  numbers that must never reach a customer-facing document.
+
+# --- Sensitivity tags ------------------------------------------------------
+# PUBLIC  Externally verifiable. Annual report, certification register, press.
+# OWN     The author's own scope and work. Theirs to state.
+# RESULT  A performance number, self-reported, no surviving document behind it.
+# SOFT    Real but internally sourced. State rounded, or do not state it.
+# HOLD    Never leaves the store. Not in any generated or reviewed document.
+# ---------------------------------------------------------------------------
+
+claims:
+  - id: TC-REV-2025
+    text: Net sales were SEK 812 million in the financial year 2025.
+    also_expressed_as:
+      - 812 MSEK
+      - SEK 0.81 billion
+    sensitivity: PUBLIC
+    themes: [financial, scale]
+    source:
+      kind: public
+      ref: Tallvik Components Annual Report 2025, p. 4
+      verified_on: 2026-02-11
+
+  - id: TC-MARKETS
+    text: The company sells into 14 European markets, 9 direct and 5 through distributors.
+    sensitivity: PUBLIC
+    themes: [scale, channel]
+    source:
+      kind: public
+      ref: Tallvik Components Annual Report 2025, p. 12
+      verified_on: 2026-02-11
+
+  - id: TC-CERT
+    text: >
+      The TR-40 crankset is tested to ISO 4210 and carries third-party
+      certification against EN 14781.
+    sensitivity: PUBLIC
+    themes: [technical, regulated]
+    source:
+      kind: public
+      ref: Certificate 2025-4471, notified body test register
+      verified_on: 2026-01-30
+    note: >
+      A certification claim is a liability claim. It is tagged PUBLIC because
+      it is verifiable, not because it is safe to paraphrase. Restating it in
+      looser language changes what has been certified.
+
+  - id: TC-MECHANICS-2025
+    text: >
+      The workshop training programme certified 4,200 individual mechanics
+      during 2025.
+    sensitivity: RESULT
+    themes: [education, demand]
+    source:
+      kind: self_reported
+      ref: Training team year-end summary, January 2026
+      verified_on: 2026-01-15
+    note: >
+      A RESULT claim is usable and unverifiable. Expect to be asked how it was
+      counted. 4,200 counts individuals, not workshops.
+
+  - id: TC-PARTNERS
+    text: >
+      The partner portal serves 180 distributor and retailer organisations.
+    sensitivity: RESULT
+    themes: [channel, education]
+    source:
+      kind: self_reported
+      ref: Partner portal export, December 2025
+      verified_on: 2026-01-08
+    note: >
+      180 counts organisations. TC-MECHANICS-2025 counts individuals. Using
+      both figures in one document without saying so invites the reader to
+      assume a single unit and conclude that one number is wrong.
+
+  - id: TC-CSAT
+    text: Customer satisfaction reached 84% in the 2025 annual survey.
+    sensitivity: RESULT
+    themes: [service]
+    source:
+      kind: self_reported
+      ref: Annual customer survey 2025, n=1,140
+      verified_on: 2026-02-02
+
+  - id: TC-GROWTH-DACH
+    text: >
+      Net sales in the DACH region grew 7% in 2025, on a regional base of
+      SEK 210 million.
+    sensitivity: SOFT
+    themes: [financial, growth]
+    source:
+      kind: internal
+      ref: Regional performance pack Q4 2025
+      verified_on: 2026-01-22
+    note: >
+      The base is stated deliberately. A growth rate without a base is a claim
+      rather than a result, and it gets discounted on sight.
+
+  - id: TC-LEADTIME
+    text: >
+      Average order-to-delivery lead time improved by 6 days across the
+      European distribution network in 2025.
+    sensitivity: SOFT
+    themes: [operations]
+    source:
+      kind: internal
+      ref: Supply chain review, February 2026
+      verified_on: 2026-02-14
+
+  - id: TC-MARGIN
+    text: >
+      Gross margin on the TR-40 crankset was 41.3% in 2025, against a
+      divisional target of 44%.
+    sensitivity: HOLD
+    themes: [financial]
+    keywords:
+      - gross margin
+      - margin on the TR-40
+    source:
+      kind: internal
+      ref: Divisional P&L, restricted
+      verified_on: 2026-02-11
+    note: >
+      HOLD is the reason this system exists. A model asked to write a
+      confident product page will reach for a margin figure if it can see one.
+      The store holds it so a human can reason about it. The gate makes sure
+      it cannot leave.
+
+  - id: TC-PIPELINE
+    text: >
+      Open order pipeline for the TR-40 launch stood at SEK 96 million
+      entering 2026.
+    sensitivity: HOLD
+    themes: [financial, demand]
+    keywords:
+      - open order pipeline
+      - pipeline for the TR-40
+    source:
+      kind: internal
+      ref: Commercial review, restricted
+      verified_on: 2026-01-18
+
+  - id: TC-ROLE-CAMPAIGN
+    text: >
+      Led the European launch campaign for the TR-40 crankset across all
+      14 markets, covering content, trade press and distributor enablement.
+    sensitivity: OWN
+    themes: [campaign, channel]
+    source:
+      kind: own_scope
+      ref: Role scope, 2025
+      verified_on: 2026-02-11
