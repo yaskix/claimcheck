@@ -140,9 +140,9 @@ What I have not found between those two is a small, readable, boring thing: a cl
 
 ## Where this came from
 
-I keep a sourced fact bank for my own writing — every claim tagged, nothing stated that I cannot point at. It started as a discipline and turned into a habit, and the habit turned out to generalise. This repository is the generalisation, with the private material stripped out and a fictional company put in its place.
+I keep a sourced fact bank for my own writing — every claim tagged, nothing stated that I cannot point at. This repository is that idea with the private material stripped out and a fictional company put in its place.
 
-I am a marketing operator rather than an engineer, and I have spent the last several years in industrial B2B rather than in AI. The vantage is deliberate. The people writing about what generative tools do to a marketing function are mostly not the people who have sat in the approval meeting.
+I am a marketing operator, not an engineer. This is written from inside the approval process rather than from inside the technology.
 
 `private/` is in `.gitignore` for the obvious reason.
 
