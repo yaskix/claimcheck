@@ -1,0 +1,29 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -r requirements.txt
+      - run: python -m unittest discover -s tests -t .
+      - name: the clean draft must pass
+        run: python -m claimcheck check drafts/clean.md
+      - name: the unsourced draft must fail
+        run: |
+          if python -m claimcheck check drafts/unsourced.md; then
+            echo "the gate let an unsourced draft through"
+            exit 1
+          fi
